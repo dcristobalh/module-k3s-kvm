@@ -8,3 +8,15 @@ repos:
         - --hook-config=--path-to-file=README.md        # Valid UNIX path. I.e. ../TFDOC.md or docs/README.md etc.
         - --hook-config=--add-to-existing-file=true     # Boolean. true or false
         - --hook-config=--create-file-if-not-exist=true # Boolean. true or false
+    - id: terraform_tflint
+      args:
+        - --args=--enable-rule=terraform_documented_variables
+    - id: terraform_tfsec
+      args:
+        - >
+          --args=--format json
+          --no-color
+    - id: terraform_validate
+      args:
+        - --args=-json
+        - --args=-no-color
